@@ -1,13 +1,5 @@
  // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDRYqgVtx8Rt2aovcYpjblmI34klFc2X_0",
-            authDomain: "teachconnect-70753.firebaseapp.com",
-            projectId: "teachconnect-70753",
-            storageBucket: "teachconnect-70753.firebasestorage.app",
-            messagingSenderId: "1064030232896",
-            appId: "1:1064030232896:web:afca52e5a00554fe77daa5"
-        };
-
+       // your firebase api here
         firebase.initializeApp(firebaseConfig);
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         const db = firebase.firestore();
