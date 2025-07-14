@@ -4,14 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 // ✅ Your Firebase Configuration (replace with your actual config)
-const firebaseConfig = {
-    apiKey: "AIzaSyDRYqgVtx8Rt2aovcYpjblmI34klFc2X_0",
-    authDomain: "teachconnect-70753.firebaseapp.com",
-    projectId: "teachconnect-70753",
-    storageBucket: "teachconnect-70753.firebasestorage.app",
-    messagingSenderId: "1064030232896",
-    appId: "1:1064030232896:web:afca52e5a00554fe77daa5"
-};
+
 
 
 // Initialize Firebase
