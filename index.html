@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachConnect | Teacher Appointment Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    TeachConnect
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#teachers">Teachers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Book Appointments with <span>Expert Teachers</span> Effortlessly</h1>
+                    <p>Connect with qualified educators for personalized learning experiences. Schedule sessions at your
+                        convenience and enhance your knowledge with our easy-to-use platform.</p>
+                    <div class="hero-btns">
+                        <a href="#teachers" class="btn">Find a Teacher</a>
+                        <a href="#features" class="btn btn-outline">How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixzdHVkZW50fHx8fHx8MTY4NzYwOTI5MA&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="Teacher and student" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Platform</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Connecting Students with Exceptional Educators</h3>
+                    <p>TeachConnect is an innovative platform designed to bridge the gap between students seeking
+                        knowledge and qualified teachers offering their expertise. Our mission is to make quality
+                        education accessible to everyone, anytime, anywhere.</p>
+                    <p>With our easy-to-use interface, you can browse through hundreds of professional educators, view
+                        their profiles, check availability, and book appointments in just a few clicks.</p>
+
+                    <div class="about-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Easy Scheduling</h4>
+                                <p>View teacher availability and book sessions at your convenience.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Verified Teachers</h4>
+                                <p>All educators undergo a strict verification process.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Virtual Sessions</h4>
+                                <p>Attend classes from anywhere with our integrated video system.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Secure Payments</h4>
+                                <p>Enjoy safe and hassle-free transactions for all bookings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1580894908361-967195033215?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hpbmcsc3R1ZGVudHx8fHx8fDE2ODc2MDkzMTY&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="Online teaching">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find Your Teacher</h3>
+                    <p>Browse our extensive directory of qualified teachers by subject, availability, and ratings.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Book Appointment</h3>
+                    <p>Select your preferred time slot and book a session with just a few clicks.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Attend Session</h3>
+                    <p>Join your virtual classroom at the scheduled time through our secure platform.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learn & Grow</h3>
+                    <p>Access learning materials, track progress, and achieve your educational goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers" id="teachers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Teachers</h2>
+            </div>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixwb3J0cmFpdHx8fHx8fDE2ODc2MDkzNTY&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="Teacher Sarah">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Mathematics Expert</p>
+                        <div class="teacher-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8 (124)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixwb3J0cmFpdHx8fHx8fDE2ODc2MDkzODQ&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="Teacher David">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>David Chen</h3>
+                        <p>Science Specialist</p>
+                        <div class="teacher-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (98)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixwb3J0cmFpdHx8fHx8fDE2ODc2MDk0MDI&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="Teacher Maria">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Maria Rodriguez</h3>
+                        <p>Language Arts Instructor</p>
+                        <div class="teacher-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.2 (87)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixwb3J0cmFpdHx8fHx8fDE2ODc2MDkzODQ&ixlib=rb-4.0.3&q=80&w=1080"
+                            alt="Teacher James">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>James Wilson</h3>
+                        <p>History Professor</p>
+                        <div class="teacher-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7 (112)</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions or need assistance? Our team is ready to help you with any inquiries about our
+                        platform or services.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Education Street, Learnville, LV 54321</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>support@teachconnect.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>TeachConnect</h4>
+                    <p>Making quality education accessible through seamless teacher-student connections.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#teachers">Teachers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subjects</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Arts & Music</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for the latest updates and educational tips.</p>
+                    <form class="footer-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TeachConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module">
+
+    </script>
+</body>
+
+</html>

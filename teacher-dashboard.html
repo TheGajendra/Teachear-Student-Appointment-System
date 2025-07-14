@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | TeachConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assests/teacher-dashboard.css">
+</head>
+
+<body>
+    <header>
+        <h1>TeachConnect | Teacher Dashboard</h1>
+    </header>
+
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="logo-text">TeachConnect</div>
+            </div>
+            <div class="welcome-text" id="teacherName">Welcome, Teacher</div>
+        </div>
+        <div class="nav-right">
+            <button class="btn btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-stats">
+            <div class="stat-card stat-1">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="appointmentsCount">0</h3>
+                    <p>Total Appointments</p>
+                </div>
+            </div>
+            <div class="stat-card stat-2">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="approvedCount">0</h3>
+                    <p>Approved Appointments</p>
+                </div>
+            </div>
+            <div class="stat-card stat-3">
+                <div class="stat-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="messagesCount">0</h3>
+                    <p>Messages Received</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="section-header">
+                <h2 class="section-title">Schedule New Appointment</h2>
+            </div>
+            <form id="appointmentForm" class="form-grid">
+                <div class="form-group">
+                    <label for="studentName" class="form-label">
+                        <i class="fas fa-user-graduate"></i> Student Name
+                    </label>
+                    <input type="text" id="studentName" class="form-input" placeholder="Enter student name" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDateTime" class="form-label">
+                        <i class="fas fa-calendar-alt"></i> Date & Time
+                    </label>
+                    <input type="datetime-local" id="appointmentDateTime" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-calendar-plus"></i> Schedule Appointment
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="section-header">
+                <h2 class="section-title">Your Appointments</h2>
+            </div>
+            <div class="table-container">
+                <table id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Date/Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="section-header">
+                <h2 class="section-title">Recent Messages</h2>
+            </div>
+            <div class="table-container">
+                <table id="messagesTable">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>TeachConnect - Connecting Students and Teachers</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>© 2023 TeachConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+    <script type="module" src="assests/teacher-dashboard.js"></script>
+</body>
+</html>

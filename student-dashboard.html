@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | TeachConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assests/student-dashboard.css">
+</head>
+
+<body>
+    <header>
+        <h1>TeachConnect | Student Dashboard</h1>
+    </header>
+
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">TeachConnect</div>
+            </div>
+            <div class="welcome-text" id="studentName">Welcome, Student</div>
+        </div>
+        <div class="nav-right">
+            <button class="btn btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Available Teachers</h2>
+        </div>
+        <div id="teacherCards" class="card-grid"></div>
+        
+        <div class="section-header">
+            <h2 class="section-title">Your Appointments</h2>
+        </div>
+        <div id="appointmentsList" class="card-grid"></div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="btn-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Book Appointment</h3>
+                <p class="teacher-name" id="modalTeacherName">With: Teacher Name</p>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate" class="form-label">
+                    <i class="fas fa-calendar-alt"></i> Select Date & Time
+                </label>
+                <input type="datetime-local" id="appointmentDate" class="form-input">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-modal btn-confirm" onclick="confirmBooking()">
+                    <i class="fas fa-calendar-check"></i> Confirm Booking
+                </button>
+                <button class="btn-modal btn-cancel" onclick="closeModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+    <script type="module" src="assests/student-dashboard.js">
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachConnect | Login & Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <link rel="stylesheet" href="assests/login.css">
+</head>
+
+<body>
+    <!-- Notification System -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">Operation completed successfully</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    TeachConnect
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-container">
+        <div class="container">
+            <div class="auth-card">
+                <div class="auth-image">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVhY2hlcixzdHVkZW50fHx8fHx8MTY4NzYwOTI5MA&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="Teacher and student">
+                    <h2>Connect with the Best Educators</h2>
+                    <p>Book appointments with qualified teachers and enhance your learning journey with our easy-to-use
+                        platform.</p>
+                </div>
+
+                <div class="auth-content">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="login">Login</div>
+                        <div class="tab" data-tab="register">Register</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="tab-content active" id="login">
+                        <h2>Welcome Back</h2>
+                        <p>Please login to your account</p>
+
+                        <div class="role-selection">
+                            <div class="role-option selected" data-role="student">
+                                <i class="fas fa-user-graduate"></i>
+                                <h4>Student</h4>
+                                <p>Book appointments with teachers</p>
+                            </div>
+                            <div class="role-option" data-role="teacher">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h4>Teacher</h4>
+                                <p>Manage your schedule</p>
+                            </div>
+                        </div>
+
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address</label>
+                                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" class="form-control"
+                                    placeholder="Enter your password" required>
+                            </div>
+
+                            <div class="remember-forgot">
+                                <div class="remember">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Login</button>
+                        </form>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+
+                        <div class="login-footer">
+                            <p>Don't have an account? <a href="#" class="switch-to-register">Register Now</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <div class="tab-content" id="register">
+                        <h2>Create Your Account</h2>
+                        <p>Join as a student to book appointments</p>
+
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label for="registerName">Full Name</label>
+                                <input type="text" id="registerName" class="form-control"
+                                    placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="registerEmail">Email Address</label>
+                                <input type="email" id="registerEmail" class="form-control"
+                                    placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="registerPassword">Password</label>
+                                <input type="password" id="registerPassword" class="form-control"
+                                    placeholder="Create a password (min 6 characters)" minlength="6" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="registerConfirmPassword">Confirm Password</label>
+                                <input type="password" id="registerConfirmPassword" class="form-control"
+                                    placeholder="Confirm your password" minlength="6" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="educationLevel">Education Level</label>
+                                <select id="educationLevel" class="form-control" required>
+                                    <option value="">Select your education level</option>
+                                    <option value="highschool">High School</option>
+                                    <option value="undergraduate">Undergraduate</option>
+                                    <option value="graduate">Graduate</option>
+                                    <option value="professional">Professional</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interests">Subjects of Interest</label>
+                                <input type="text" id="interests" class="form-control"
+                                    placeholder="e.g., Math, Science, English">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="remember">
+                                <input type="checkbox" id="terms" required>
+                                <label for="terms">I agree to the <a href="#" style="color: var(--primary);">Terms of
+                                        Service</a> and <a href="#" style="color: var(--primary);">Privacy
+                                        Policy</a></label>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%; margin-top: 1.5rem;">Create
+                                Account</button>
+                        </form>
+
+                        <div class="login-footer">
+                            <p>Already have an account? <a href="#" class="switch-to-login">Login Now</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    &copy; 2023 TeachConnect. All rights reserved.
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assests/login.js">
+      
+    </script>
+</body>
+
+</html>
